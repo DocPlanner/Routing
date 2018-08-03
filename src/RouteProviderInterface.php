@@ -53,12 +53,11 @@ interface RouteProviderInterface
      *
      * @param string $name The route name to fetch
      *
+     * @param array $parameters
      * @return Route
      *
-     * @throws RouteNotFoundException If there is no route with that name in
-     *                                this repository
      */
-    public function getRouteByName($name);
+    public function getRouteByName($name, $parameters = []);
 
     /**
      * Find many routes by their names using the provided list of names.
@@ -81,8 +80,9 @@ interface RouteProviderInterface
      * @param array|null $names The list of names to retrieve, In case of null,
      *                          the provider will determine what routes to return
      *
+     * @param array $parameters
      * @return Route[] Iterable list with the keys being the names from the
      *                 $names array
      */
-    public function getRoutesByNames($names);
+    public function getRoutesByNames($names, $parameters = []);
 }
